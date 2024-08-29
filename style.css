@@ -1,3 +1,8 @@
+:root{
+  --primary-color:#ff7a57;
+
+}
+
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -91,8 +96,8 @@ nav ul .menuItem .link:hover {
   color: rgba(255, 0, 0, 0.8);
 }
 nav ul .menuItem .link.customBtn {
-  background-color: #ff7a57;
-  border-color: #ff7a57;
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
   margin-left: 15px;
 }
 nav ul .menuItem .link.customBtn:hover {
@@ -108,8 +113,8 @@ nav ul .menuItem .link.customBtn:hover {
   line-height: 1.5;
   border-radius: 50px;
   transition: all 0.3s;
-  background-color: #ff7a57;
-  border-color: #ff7a57;
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
 }
 .customBtn:hover {
   background: rgba(255, 0, 0, 0.6);
@@ -248,4 +253,81 @@ hr {
 }
 .about .content a {
   margin: 20px 0;
+}
+/* main headding  */
+.main-heading{
+  padding-top: 100px;
+  padding-bottom: 60px;
+  text-align: center;
+}
+.main-heading h6{
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.5);
+}
+.main-heading h2{
+  font-size: 32px;
+  font-weight: 600;
+}
+.main-heading p{
+  margin-top: 10px;
+  color: rgba(0, 0, 0, 0.5);
+  line-height: 1.5;
+}
+.service{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 20px;
+  margin-top: 20px;
+}
+.card{
+  padding: 40px;
+  background-color: white;
+  text-align: center;
+  border: 1px solid rgb(222, 226, 230);
+  border-radius: 4px;
+  box-shadow: rgba(173, 181, 189, 0.4) 0px 0px 5px;
+  transition: all 0.3s;
+}
+.card:hover{
+  background-color: var(--primary-color);
+  color: white;
+  scale: 1.1;
+}
+.card:hover i{
+  background-color: transparent;
+  color: white;
+}
+.card i {
+  font-size: 40px;
+  margin: 10px 0;
+color: var(--primary-color);
+}
+
+.skills{
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  gap: 10px;
+}
+.skill{
+  
+  text-align: left;
+  padding: 10px;
+}
+.skills .skill h4{
+  font-weight: 500;
+  font-size: 20px;
+  margin-bottom: 12px;
+}
+.skill .progress{
+  background-color: rgba(173, 181, 189, 0.4) ;
+  width: 100%;
+  height: 4px;
+ border-radius: 10px;
+}
+.skill .value{
+  background-color: var(--primary-color);
+  width: 20%;
+  height: 4px;
+  border-radius: 10px;
 }
