@@ -53,3 +53,12 @@ paginationDots.forEach((dot) => {
 
 // Show the first testimonial initially
 showTestimonial(currentIndex);
+
+// toggle menu
+
+const toggle = document.querySelector(".toggleMenu");
+const dropMenu = document.querySelector(".dropMenu");
+
+toggle.addEventListener("click", () => {
+  dropMenu.classList.toggle("open");
+});

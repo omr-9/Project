@@ -17,6 +17,7 @@ html {
 
 a {
   text-decoration: none;
+  color: #495057;
 }
 
 body {
@@ -87,10 +88,11 @@ ul {
 }
 .nav .navContent {
   display: flex;
-  padding: 20px;
+  padding: 20px 0;
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  position: relative;
 }
 .nav .navContent .logo {
   max-width: 20%;
@@ -101,7 +103,7 @@ ul {
 .nav .navContent .links {
   width: 80%;
 }
-.nav ul {
+.nav .linksContainer {
   display: none;
 
   @media (min-width: 991px) {
@@ -110,23 +112,23 @@ ul {
     align-items: center;
   }
 }
-.nav ul .menuItem .link {
+.nav .linksContainer .menuItem .link {
   font-size: 15px;
   margin: 0 12px;
   font-weight: 700;
   color: grey;
   transition: all 0.3s;
 }
-.nav ul .menuItem .link.active,
-.nav ul .menuItem .link:hover {
+.nav .linksContainer .menuItem .link.active,
+.nav .linksContainer .menuItem .link:hover {
   color: rgba(255, 0, 0, 0.8);
 }
-.nav ul .menuItem .link.customBtn {
+.nav .linksContainer .menuItem .link.customBtn {
   background-color: var(--primary-color);
   border-color: var(--primary-color);
   margin-left: 15px;
 }
-.nav ul .menuItem .link.customBtn:hover {
+.nav .linksContainer .menuItem .link.customBtn:hover {
   background: rgba(255, 0, 0, 0.6);
 }
 .customBtn {
@@ -145,26 +147,58 @@ ul {
 .customBtn:hover {
   background: var(--secondery-color);
 }
-/* -------------------------------- */
-.nav .mobile-menu .toggle{
-  
+.toggleMenu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  width: 55px;
+  height: 40px;
   cursor: pointer;
-  border: 2px solid rgba(173, 181, 189, 0.4);
-  padding: 4px;
-  border-radius: 6px;
+
+  @media (min-width: 991px) {
+    display: none;
+  }
 }
-.nav .mobile-menu .toggle span{
-  
+.toggleMenu span {
+  width: 30px;
+  height: 3px;
+  border-radius: 12px;
+  background-color: #3e4247;
+}
+.dropMenu {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: -100%;
+  width: 100%;
+  transition: 0.6s;
+  text-align: center;
+  background-color: white;
+  box-shadow: 0 4px 4px rgb(0 0 0 / 0.1);
+}
+.dropMenu.open {
   display: block;
-  width: 20px;
-        height: 2px;
-        background-color: rgba(0, 0, 0, 1);
-        border-radius: 12px;
-        margin: 4px 0;
+  top: 89px;
 }
-
-
-
+.dropMenu ul li {
+  padding: 10px;
+}
+.dropMenu ul li {
+  padding: 10px;
+}
+.dropMenu ul li a {
+  transition: all 0.4s;
+}
+.dropMenu ul li a.active {
+  color: var(--primary-color);
+}
+.dropMenu ul li a:hover {
+  padding-left: 15px;
+}
 
 /* -------------------------------- */
 .homePage {
@@ -190,9 +224,13 @@ ul {
   color: rgba(0, 0, 0, 0.5);
 }
 .homePage .content h1 {
-  font-size: 70px;
+  font-size: 50px;
   margin: 20px 0;
   line-height: 1;
+
+  @media (min-width: 576px) {
+    font-size: 70px;
+  }
 }
 .homePage .content p {
   font-weight: 400;
@@ -209,8 +247,8 @@ ul {
   background-color: #3e4247;
 }
 
-.homePage .icons ,
-footer .icons{
+.homePage .icons,
+footer .icons {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -228,18 +266,18 @@ footer .icons div {
   transition: all 0.3s;
   cursor: pointer;
 }
-.homePage .icons div:hover ,
-footer .icons div:hover{
+.homePage .icons div:hover,
+footer .icons div:hover {
   background-color: rgb(255, 122, 87);
 }
 
 .homePage .icons i,
-footer .icons i{
+footer .icons i {
   font-size: 20px;
   color: rgb(255, 122, 87);
 }
-.homePage .icons div:hover i ,
-footer .content .icons div:hover i{
+.homePage .icons div:hover i,
+footer .content .icons div:hover i {
   color: white;
 }
 
@@ -389,8 +427,12 @@ hr {
 
 .skillsContainer {
   display: grid;
-  grid-template-columns: repeat(2, auto);
+  grid-template-columns: repeat(1, minmax(0, 1fr));
   gap: 10px;
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 .skill {
   text-align: left;
@@ -647,8 +689,6 @@ hr {
 /* start contact */
 .contact {
   padding-top: var(--section-padding);
-  padding-bottom: var(--section-padding);
-  position: relative;
 }
 .contact .content {
   padding: 0 10px;
@@ -659,7 +699,11 @@ hr {
   width: 90%;
   margin: auto;
   border-radius: 12px;
+  position: relative;
+  bottom: -250px;
   gap: 30px;
+  background-color: white;
+  margin-top: -250px;
 
   @media (min-width: 576px) {
     padding: 0 30px;
@@ -764,14 +808,19 @@ textarea {
   gap: 10px;
   border-bottom: 1px solid #ddd;
 }
+.contact .map img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+}
 /* end contact */
 /* footer  */
-footer{
+footer {
   padding-top: 40px;
   padding-bottom: 40px;
   background-color: rgba(173, 181, 189, 0.1);
 }
-footer .content{
+footer .content {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -780,17 +829,15 @@ footer .content .text {
   font-size: 18px;
 }
 @media (max-width: 576px) {
-  footer .content{
+  footer .content {
     display: flex;
     justify-content: space-between;
     flex-direction: column;
-  
   }
   footer .content .text {
     font-size: 14px;
   }
-  footer .content .icons{
+  footer .content .icons {
     margin-top: 20px;
   }
 }
-
