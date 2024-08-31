@@ -145,6 +145,28 @@ ul {
 .customBtn:hover {
   background: var(--secondery-color);
 }
+/* -------------------------------- */
+.nav .mobile-menu .toggle{
+  
+  cursor: pointer;
+  border: 2px solid rgba(173, 181, 189, 0.4);
+  padding: 4px;
+  border-radius: 6px;
+}
+.nav .mobile-menu .toggle span{
+  
+  display: block;
+  width: 20px;
+        height: 2px;
+        background-color: rgba(0, 0, 0, 1);
+        border-radius: 12px;
+        margin: 4px 0;
+}
+
+
+
+
+/* -------------------------------- */
 .homePage {
   height: 94vh;
   display: flex;
@@ -187,13 +209,15 @@ ul {
   background-color: #3e4247;
 }
 
-.homePage .icons {
+.homePage .icons ,
+footer .icons{
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
-.homePage .icons div {
+.homePage .icons div,
+footer .icons div {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -204,15 +228,18 @@ ul {
   transition: all 0.3s;
   cursor: pointer;
 }
-.homePage .icons div:hover {
+.homePage .icons div:hover ,
+footer .icons div:hover{
   background-color: rgb(255, 122, 87);
 }
 
-.homePage .icons i {
+.homePage .icons i,
+footer .icons i{
   font-size: 20px;
   color: rgb(255, 122, 87);
 }
-.homePage .icons div:hover i {
+.homePage .icons div:hover i ,
+footer .content .icons div:hover i{
   color: white;
 }
 
@@ -738,3 +765,32 @@ textarea {
   border-bottom: 1px solid #ddd;
 }
 /* end contact */
+/* footer  */
+footer{
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: rgba(173, 181, 189, 0.1);
+}
+footer .content{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+footer .content .text {
+  font-size: 18px;
+}
+@media (max-width: 576px) {
+  footer .content{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+  
+  }
+  footer .content .text {
+    font-size: 14px;
+  }
+  footer .content .icons{
+    margin-top: 20px;
+  }
+}
+
